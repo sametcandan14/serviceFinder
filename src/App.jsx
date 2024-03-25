@@ -6,6 +6,8 @@ import AboutUsPage from "./pages/about-us/about-us-page";
 import VisionMissionPage from "./pages/about-us/vision-mission-page";
 import ContactUsPage from "./pages/about-us/contact-us-page";
 import PrivacyPolicyPage from "./pages/about-us/privacy-policy-page";
+import LoginPage from "./pages/auth/login-page";
+import RegisterPage from "./pages/auth/register-page";
 
 function App() {
   return (
@@ -13,6 +15,11 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<MainPage />} />
+        <Route path="/auth">
+          <Route path="login" element={<LoginPage />} />
+          <Route path="register" element={<RegisterPage />} />
+        </Route>
+
         <Route path="/about-us">
           <Route index element={<AboutUsPage />} />
           <Route path="vision-mission" element={<VisionMissionPage />} />

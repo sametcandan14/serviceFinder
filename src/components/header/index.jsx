@@ -26,32 +26,39 @@ const Header = () => {
                 fill="currentColor"
               />
             </svg>
-            <span className="fs-4">Pricing example</span>
+            <span className="fs-4">Service Finder</span>
           </Link>
           <nav className="d-inline-flex mt-2 mt-md-0 ms-md-auto">
             <Link
               className="me-3 py-2 link-body-emphasis text-decoration-none"
-              to="#"
+              to="/about-us"
             >
-              Features
+              About Us
             </Link>
             <Link
               className="me-3 py-2 link-body-emphasis text-decoration-none"
-              to="#"
+              to="/auth/login"
             >
-              Enterprise
+              Login
+            </Link>
+            <Link
+              className="me-3 py-2 link-body-emphasis text-decoration-none"
+              to="/auth/register"
+            >
+              Register
+            </Link>
+            <Link
+              className="py-2 link-body-emphasis text-decoration-none"
+              to="/my-account"
+            >
+              My Account
             </Link>
             <a
-              className="me-3 py-2 link-body-emphasis text-decoration-none"
-              href="#"
-            >
-              Support
-            </a>
-            <a
               className="py-2 link-body-emphasis text-decoration-none"
-              href="#"
+              href=""
+              onClick={() => {}}
             >
-              Pricing
+              Logout
             </a>
           </nav>
         </div>
