@@ -1,8 +1,11 @@
-const { configureStore } = require("@reduxjs/toolkit");
+import { configureStore } from "@reduxjs/toolkit";
+import categoryReducer from "./categorySlice";
 
 const store = configureStore({
   reducer: {
-    //TODO burayı doldur
+    //TODO state properties
+
+    categoryState: categoryReducer,
   },
 });
 

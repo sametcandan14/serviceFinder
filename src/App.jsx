@@ -8,8 +8,22 @@ import ContactUsPage from "./pages/about-us/contact-us-page";
 import PrivacyPolicyPage from "./pages/about-us/privacy-policy-page";
 import LoginPage from "./pages/auth/login-page";
 import RegisterPage from "./pages/auth/register-page";
+import { useDispatch, useSelector } from "react-redux";
+import useApi from "./hooks/useApi";
+import { useEffect } from "react";
 
 function App() {
+  const categoryState = useSelector((state) => state.categoryState);
+
+  const api = useApi();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    (async () => {
+      const response = await api.get("public/categories/listMainCategories");
+      console.log(response);
+    })();
+  }, []);
   return (
     <div className="container py-3">
       <Header />
