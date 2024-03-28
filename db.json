@@ -1,0 +1,53 @@
+{
+  "categories": [
+    {
+      "id": 52,
+      "parent_id": null,
+      "name": "Do It Yourself (DIY)",
+      "slug": "52-do-it-yourself-diy",
+      "description": "Do It Yourself (DIY) category description.",
+      "image": "https://api.adoptez1artisan.com/assets/images/no-image.png",
+      "status": "active",
+      "created_at": "2021-04-24 18:49:30",
+      "updated_at": "2021-07-05 20:32:59"
+    },
+    {
+      "id": 49,
+      "parent_id": null,
+      "name": "Ebénisterie",
+      "slug": "49-ebenisterie",
+      "description": "Cabinetmaking category description.",
+      "image": "https://api.adoptez1artisan.com/assets/images/no-image.png",
+      "status": "active",
+      "created_at": "2021-04-24 18:49:30",
+      "updated_at": "2021-10-19 17:39:42"
+    },
+    {
+      "id": 46,
+      "parent_id": null,
+      "name": "Ascenseurs",
+      "slug": "46-ascenseurs",
+      "description": "Elevators category description.",
+      "image": "https://api.adoptez1artisan.com/assets/images/no-image.png",
+      "status": "active",
+      "created_at": "2021-04-24 18:49:30",
+      "updated_at": "2021-10-19 17:47:32"
+    },
+
+    {
+      "id": 47,
+      "parent_id": null,
+      "name": "Traitement Antiparasitaire",
+      "slug": "47-traitement-antiparasitaire",
+      "description": "Elevators category description.",
+      "image": "https://api.adoptez1artisan.com/assets/images/no-image.png",
+      "status": "active",
+      "created_at": "2021-04-24 18:49:30",
+      "updated_at": "2021-10-19 17:47:32"
+    }
+  ],
+  "draw": 0,
+  "recordsTotal": 22,
+  "recordsFiltered": 22,
+  "status": "success"
+}

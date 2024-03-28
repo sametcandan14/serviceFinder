@@ -11,6 +11,7 @@ import RegisterPage from "./pages/auth/register-page";
 import { useDispatch, useSelector } from "react-redux";
 import useApi from "./hooks/useApi";
 import { useEffect } from "react";
+import { setCategories } from "./redux/categorySlice";
 
 function App() {
   const categoryState = useSelector((state) => state.categoryState);
@@ -20,8 +21,10 @@ function App() {
 
   useEffect(() => {
     (async () => {
-      const response = await api.get("public/categories/listMainCategories");
-      console.log(response);
+      const response = await api.get("categories");
+      console.log(response.data);
+
+      dispatch(setCategories(response.data));
     })();
   }, []);
   return (

@@ -1,7 +1,9 @@
+import { useSelector } from "react-redux";
 import BootstrapLogo from "../../assets/svg/bootstrap.svg";
 import LinksContainer from "./components/footer-links-container";
 
 const Footer = () => {
+  const categoryState = useSelector((state) => state.categoryState);
   return (
     <>
       <footer className="pt-4 my-md-5 pt-md-5 border-top">
@@ -20,14 +22,10 @@ const Footer = () => {
           </div>
           <LinksContainer
             title="Örnek Link Grubu"
-            links={[
-              { title: "Örnek link 1", url: "test" },
-              { title: "Örnek link 1", url: "test" },
-              { title: "Örnek link 1", url: "test" },
-              { title: "Örnek link 1", url: "test" },
-              { title: "Örnek link 1", url: "test" },
-              { title: "Örnek link 1", url: "test" },
-            ]}
+            links={categoryState.categories.map((category) => ({
+              url: `/category/${category.slug}`,
+              title: category.name,
+            }))}
           />
           <LinksContainer
             title="About Us"
