@@ -21,7 +21,7 @@ const Footer = () => {
             </small>
           </div>
           <LinksContainer
-            title="Örnek Link Grubu"
+            title="Categories"
             links={categoryState.categories.map((category) => ({
               url: `/category/${category.slug}`,
               title: category.name,

@@ -23,7 +23,6 @@ function App() {
   useEffect(() => {
     (async () => {
       const response = await api.get("categories");
-      console.log(response.data);
 
       dispatch(setCategories(response.data));
     })();
@@ -37,7 +36,7 @@ function App() {
           <Route path="login" element={<LoginPage />} />
           <Route path="register" element={<RegisterPage />} />
         </Route>
-        <Route path="/category/:slug" element={<CategoryDetailPage />} />
+        <Route path="category/:slug" element={<CategoryDetailPage />} />
         <Route path="/about-us">
           <Route index element={<AboutUsPage />} />
           <Route path="vision-mission" element={<VisionMissionPage />} />
