@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import useApi from "../../hooks/useApi";
 import { useEffect, useState } from "react";
 import CategorySingle from "../../components/category-single";
+import ServiceSingle from "../../components/service-single";
 
 const CategoryDetailPage = () => {
   const params = useParams();
@@ -16,7 +17,7 @@ const CategoryDetailPage = () => {
     (async () => {
       const response = await api.get(`${params.slug}`);
 
-      console.log(response);
+      console.log(response.data);
 
       setCategoryDetail(response.data);
 
@@ -33,13 +34,31 @@ const CategoryDetailPage = () => {
 
       <hr />
 
-      <h2>Sub Categories</h2>
+      {categoryDetail.category.children?.length > 0 ? (
+        <>
+          <h2>Sub Categories</h2>
+          <div className="row row-cols-1 row-cols-md-3 mb-3 text-center">
+            {categoryDetail.category.children.map((category) => (
+              <CategorySingle key={category.id} category={category} />
+            ))}
+          </div>
+        </>
+      ) : (
+        ""
+      )}
 
-      <div className="row row-cols-1 row-cols-md-3 mb-3 text-center">
-        {categoryDetail.category.children.map((category) => (
-          <CategorySingle key={category.id} category={category} />
-        ))}
-      </div>
+      {categoryDetail.services?.length > 0 ? (
+        <>
+          <h2>Services</h2>
+          <div className="row row-cols-1 row-cols-md-3 mb-3 text-center">
+            {categoryDetail.services.map((service) => (
+              <ServiceSingle key={service.id} service={service} />
+            ))}
+          </div>
+        </>
+      ) : (
+        ""
+      )}
     </>
   );
 };

@@ -1,20 +1,20 @@
 import { Link } from "react-router-dom";
-import ImgFallback from "./../img-fallback/index";
+import ImgFallback from "../img-fallback";
 
-const CategorySingle = ({ category }) => {
+const ServiceSingle = ({ service }) => {
   return (
     <>
       <div className="col-md-3">
-        <div className="card mb-4 rounded-3 shadow-sm border-primary ">
+        <div className="card mb-4 rounded-3 shadow-sm border-success ">
           <div
-            className="card-header py-3 text-bg-primary border-primary"
+            className="card-header py-3 text-bg-success border-success"
             style={{ height: "100px" }}
           >
-            <h4 className="my-0 fw-normal">{category.name}</h4>
+            <h4 className="my-0 fw-normal">{service.name}</h4>
           </div>
           <div className="card-body d-flex flex-column">
             <ImgFallback
-              src={category.image}
+              src={service.image}
               style={{
                 width: "100%",
                 margin: "10px",
@@ -24,9 +24,9 @@ const CategorySingle = ({ category }) => {
             />
 
             <Link
-              to={`/category/${category.slug}`}
+              to={`/services/${service.slug}`}
               type="button"
-              className="w-100 btn btn-lg btn-primary"
+              className="w-100 btn btn-lg btn-success"
             >
               <i className="fa-solid fa-circle-arrow-right" /> &nbsp; Details
             </Link>
@@ -37,4 +37,4 @@ const CategorySingle = ({ category }) => {
   );
 };
 
-export default CategorySingle;
+export default ServiceSingle;
