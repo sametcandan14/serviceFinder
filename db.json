@@ -1,7 +1,15 @@
 {
+  "users": [
+    {
+      "email": "user@user.com",
+      "password": "user123",
+      "id": "c6ed"
+    }
+  ],
+
   "categories": [
     {
-      "id": 52,
+      "id": "52",
       "parent_id": null,
       "name": "Do It Yourself (DIY)",
       "slug": "52-do-it-yourself-diy",
@@ -12,7 +20,7 @@
       "updated_at": "2021-07-05 20:32:59"
     },
     {
-      "id": 49,
+      "id": "49",
       "parent_id": null,
       "name": "Ebénisterie",
       "slug": "49-ebenisterie",
@@ -23,7 +31,7 @@
       "updated_at": "2021-10-19 17:39:42"
     },
     {
-      "id": 46,
+      "id": "46",
       "parent_id": null,
       "name": "Ascenseurs",
       "slug": "46-ascenseurs",
@@ -33,9 +41,8 @@
       "created_at": "2021-04-24 18:49:30",
       "updated_at": "2021-10-19 17:47:32"
     },
-
     {
-      "id": 47,
+      "id": "47",
       "parent_id": null,
       "name": "Traitement Antiparasitaire",
       "slug": "47-traitement-antiparasitaire",
@@ -46,7 +53,6 @@
       "updated_at": "2021-10-19 17:47:32"
     }
   ],
-
   "52-do-it-yourself-diy": {
     "slug": "52-do-it-yourself-diy",
     "category": {
@@ -10737,7 +10743,6 @@
   },
   "53-bricoleurs-petits-boulots": {
     "slug": "53-bricoleurs-petits-boulots",
-
     "category": {
       "id": 53,
       "parent_id": 52,
@@ -10750,7 +10755,6 @@
   },
   "54-serruriers": {
     "slug": "54-serruriers",
-
     "category": {
       "id": 54,
       "parent_id": 52,

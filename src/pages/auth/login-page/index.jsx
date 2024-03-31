@@ -1,6 +1,20 @@
 import { Form, Button, Row, Col } from "react-bootstrap";
+import useApi from "./../../../hooks/useApi";
+import { useEffect } from "react";
 
 const LoginPage = () => {
+  const api = useApi();
+
+  useEffect(() => {
+    (async () => {
+      const postData = {
+        email: "user@user.com",
+        password: "user123",
+      };
+      const response = await api.post("/register", postData);
+      console.log(response);
+    })();
+  }, []);
   return (
     <>
       <Row className="justify-content-center">
