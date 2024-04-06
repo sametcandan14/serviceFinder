@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   //TODO burayı doldur
 
-  token: null,
+  token: localStorage.getItem("authToken"),
   user: null,
 };
 
@@ -15,6 +15,7 @@ const authSlice = createSlice({
       state.token = action.payload;
       console.log(state);
       console.log(action);
+      localStorage.setItem("authToken", action.payload);
     },
 
     setUser: (state, action) => {
@@ -23,7 +24,11 @@ const authSlice = createSlice({
       console.log(action);
     },
 
-    removeToken: (state) => {},
+    removeToken: (state) => {
+      state.token = null;
+      state.user = null;
+      localStorage.removeItem("authToken");
+    },
   },
 });
 

@@ -16,6 +16,7 @@ import CategoryDetailPage from "./pages/category-detail-page";
 
 function App() {
   const categoryState = useSelector((state) => state.categoryState);
+  const authState = useSelector((state) => state.authState);
 
   const api = useApi();
   const dispatch = useDispatch();

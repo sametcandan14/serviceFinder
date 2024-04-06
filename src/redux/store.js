@@ -8,6 +8,13 @@ const store = configureStore({
     authState: authReducer,
     categoryState: categoryReducer,
   },
+
+  // a non-serializable value was detected in the state
+
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });
 
 export default store;

@@ -1,9 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { removeToken } from "../../redux/authSlice";
+
+import { auth } from "./../../firebase/firebaseConfig";
+import { signOut } from "firebase/auth";
 
 const Header = () => {
   const authState = useSelector((state) => state.authState);
+  const dispatch = useDispatch();
   return (
     <>
       <header>
@@ -44,12 +49,17 @@ const Header = () => {
                   className="py-2 link-body-emphasis text-decoration-none"
                   to="/my-account"
                 >
-                  My Account
+                  <strong> {authState.user.email} </strong>
                 </Link>
                 <a
-                  className="py-2 link-body-emphasis text-decoration-none"
-                  href="javascript:void()"
-                  onClick={() => {}}
+                  className=" ms-3  py-2 link-body-emphasis text-decoration-none"
+                  // href="javascript:void()"
+
+                  onClick={(e) => {
+                    dispatch(removeToken());
+                    signOut(auth);
+                    e.preventDefault();
+                  }}
                 >
                   Logout
                 </a>
