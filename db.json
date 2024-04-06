@@ -1,12 +1,4 @@
 {
-  "users": [
-    {
-      "email": "user@user.com",
-      "password": "user123",
-      "id": "c6ed"
-    }
-  ],
-
   "categories": [
     {
       "id": "52",

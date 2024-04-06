@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const authState = useSelector((state) => state.authState);
   return (
     <>
       <header>
@@ -35,31 +37,39 @@ const Header = () => {
             >
               About Us
             </Link>
-            <Link
-              className="me-3 py-2 link-body-emphasis text-decoration-none"
-              to="/auth/login"
-            >
-              Login
-            </Link>
-            <Link
-              className="me-3 py-2 link-body-emphasis text-decoration-none"
-              to="/auth/register"
-            >
-              Register
-            </Link>
-            <Link
-              className="py-2 link-body-emphasis text-decoration-none"
-              to="/my-account"
-            >
-              My Account
-            </Link>
-            <a
-              className="py-2 link-body-emphasis text-decoration-none"
-              href=""
-              onClick={() => {}}
-            >
-              Logout
-            </a>
+
+            {authState.user ? (
+              <>
+                <Link
+                  className="py-2 link-body-emphasis text-decoration-none"
+                  to="/my-account"
+                >
+                  My Account
+                </Link>
+                <a
+                  className="py-2 link-body-emphasis text-decoration-none"
+                  href="javascript:void()"
+                  onClick={() => {}}
+                >
+                  Logout
+                </a>
+              </>
+            ) : (
+              <>
+                <Link
+                  className="me-3 py-2 link-body-emphasis text-decoration-none"
+                  to="/auth/login"
+                >
+                  Login
+                </Link>
+                <Link
+                  className="me-3 py-2 link-body-emphasis text-decoration-none"
+                  to="/auth/register"
+                >
+                  Register
+                </Link>
+              </>
+            )}
           </nav>
         </div>
       </header>

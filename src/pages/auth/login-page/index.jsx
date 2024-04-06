@@ -1,30 +1,39 @@
 import { Form, Button, Row, Col } from "react-bootstrap";
 import { auth } from "../../../firebase/firebaseConfig";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { useEffect } from "react";
+
+import { useDispatch } from "react-redux";
+import { setToken, setUser } from "../../../redux/authSlice";
 
 const LoginPage = () => {
-  useEffect(() => {
-    (async () => {
-      const email = "user@user.com";
-      const password = "user123";
-      signInWithEmailAndPassword(auth, email, password).then(
-        (userCredential) => {
-          console.log(userCredential.user.accessToken);
-        }
-      );
-    })();
-  }, []);
+  const dispatch = useDispatch();
 
   const onFormSubmit = (e) => {
     e.preventDefault();
     //Map Class
     const data = new FormData(e.target);
-    const value = Object.fromEntries(data.entries());
-    console.log(value);
-    console.log(e);
-  };
+    const formJson = Object.fromEntries(data.entries());
 
+    console.log(formJson);
+
+    // const loginResult = await signInWithEmailAndPassword(auth, formJson).then(
+    //   (userCredential) => {
+    //     console.log(userCredential.user.accessToken);
+    //   }
+    // );
+    // err.code === "auth/invalid-credential"
+    // dispatch(setToken(res.user?.accessToken)))
+    //       dispatch(setUser(res.user))
+    const loginResult = signInWithEmailAndPassword(
+      auth,
+      formJson.email,
+      formJson.password
+    );
+    console.log(loginResult);
+    loginResult.then((res) => dispatch(setToken(res.user.accessToken)));
+    loginResult.then((res) => dispatch(setUser(res.user)));
+    loginResult.catch((err) => alert("Bilgilerinizi kontrol ediniz"));
+  };
   return (
     <>
       <Row className="justify-content-center">
