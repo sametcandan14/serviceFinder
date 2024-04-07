@@ -8,6 +8,10 @@ export default function useApi() {
 
   api.defaults.baseURL = "http://localhost:3050";
 
+  // api.defaults.validateStatus = (status) => {
+  //   return status >= 200 && status < 599;
+  // };
+
   // api.defaults.headers.common = {
   //   "content-type": "application/json; charset=UTF-8",
   // };

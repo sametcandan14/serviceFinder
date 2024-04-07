@@ -1,14 +1,17 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { removeToken } from "../../redux/authSlice";
-
+import Swal from "sweetalert2";
 import { auth } from "./../../firebase/firebaseConfig";
 import { signOut } from "firebase/auth";
+import { ThemeContext } from "../../context/theme-context";
 
 const Header = () => {
   const authState = useSelector((state) => state.authState);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { theme } = useContext(ThemeContext);
   return (
     <>
       <header>
@@ -47,7 +50,7 @@ const Header = () => {
               <>
                 <Link
                   className="py-2 link-body-emphasis text-decoration-none"
-                  to="/my-account"
+                  to="/user"
                 >
                   <strong> {authState.user.email} </strong>
                 </Link>
@@ -56,9 +59,21 @@ const Header = () => {
                   // href="javascript:void()"
 
                   onClick={(e) => {
-                    dispatch(removeToken());
-                    signOut(auth);
-                    e.preventDefault();
+                    Swal.fire({
+                      icon: "question",
+                      title: "Çıkış Yapmak İstediğinize Emin misiniz?",
+                      cancelButtonText: "Hayır",
+                      confirmButtonText: "Evet",
+                      background: "",
+                      showCancelButton: true,
+                    }).then((result) => {
+                      if (result.isConfirmed) {
+                        dispatch(removeToken());
+                        signOut(auth);
+                        navigate("/");
+                        e.preventDefault();
+                      }
+                    });
                   }}
                 >
                   Logout

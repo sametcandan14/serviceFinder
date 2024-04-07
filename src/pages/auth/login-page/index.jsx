@@ -4,9 +4,12 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 
 import { useDispatch } from "react-redux";
 import { setToken, setUser } from "../../../redux/authSlice";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const dispatch = useDispatch();
+
+  const navigate = useNavigate();
 
   const onFormSubmit = (e) => {
     e.preventDefault();
@@ -30,8 +33,10 @@ const LoginPage = () => {
       formJson.password
     );
     console.log(loginResult);
-    loginResult.then((res) => dispatch(setToken(res.user.accessToken)));
-    loginResult.then((res) => dispatch(setUser(res.user)));
+    loginResult.then((res) => dispatch(setToken(res.user.refreshToken)));
+    loginResult
+      .then((res) => dispatch(setUser(res.user)))
+      .then(() => navigate("/user"));
     loginResult.catch((err) => alert("Bilgilerinizi kontrol ediniz"));
   };
   return (

@@ -12,7 +12,11 @@ import { useDispatch, useSelector } from "react-redux";
 import useApi from "./hooks/useApi";
 import { useEffect } from "react";
 import { setCategories } from "./redux/categorySlice";
+import { setUser } from "./redux/authSlice";
 import CategoryDetailPage from "./pages/category-detail-page";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./firebase/firebaseConfig";
+import UserPage from "./pages/my-account/index";
 
 function App() {
   const categoryState = useSelector((state) => state.categoryState);
@@ -26,8 +30,16 @@ function App() {
       const response = await api.get("categories");
 
       dispatch(setCategories(response.data));
+      console.log(authState);
+
+      auth.onAuthStateChanged((user) => {
+        if (user) {
+          dispatch(setUser(user));
+        }
+      });
     })();
   }, []);
+
   return (
     <div className="container py-3">
       <Header />
@@ -38,6 +50,8 @@ function App() {
           <Route path="register" element={<RegisterPage />} />
         </Route>
         <Route path="category/:slug" element={<CategoryDetailPage />} />
+        <Route path="/user" element={<UserPage />} />
+
         <Route path="/about-us">
           <Route index element={<AboutUsPage />} />
           <Route path="vision-mission" element={<VisionMissionPage />} />

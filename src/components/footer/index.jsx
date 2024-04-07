@@ -1,9 +1,14 @@
 import { useSelector } from "react-redux";
 import BootstrapLogo from "../../assets/svg/bootstrap.svg";
 import LinksContainer from "./components/footer-links-container";
+import { Button } from "react-bootstrap";
+import { useContext } from "react";
+import { ThemeContext } from "../../context/theme-context";
 
 const Footer = () => {
   const categoryState = useSelector((state) => state.categoryState);
+  const { theme, setTheme } = useContext(ThemeContext);
+  console.log(theme);
   return (
     <>
       <footer className="pt-4 my-md-5 pt-md-5 border-top">
@@ -36,6 +41,38 @@ const Footer = () => {
               { title: "Privacy Policy", url: "about-us/privacy-policy" },
             ]}
           />
+
+          <div className="col-6 col-md">
+            Theme Color:
+            <br />
+            <Button
+              variant="light"
+              onClick={() => {
+                setTheme("light");
+              }}
+            >
+              {theme === "light" ? (
+                <i className="fa-regular fa-square-check"></i>
+              ) : (
+                <i className="fa-regular fa-moon"></i>
+              )}
+              &nbsp; Light
+            </Button>
+            &nbsp;
+            <Button
+              variant="dark"
+              onClick={() => {
+                setTheme("dark");
+              }}
+            >
+              {theme === "dark" ? (
+                <i className="fa-regular fa-square-check"></i>
+              ) : (
+                <i className="fa-solid fa-moon"></i>
+              )}
+              &nbsp; Dark
+            </Button>
+          </div>
         </div>
       </footer>
     </>
