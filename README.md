@@ -9,7 +9,7 @@ Currently, two official plugins are available:
 
 api doc : https://github.com/emirbugra/react-api-tutorial/tree/main/docs/api
 
-to run projec on your local:
+to run project on your local:
 
 // npm i
 
