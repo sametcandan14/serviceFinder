@@ -8,3 +8,13 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
 api doc : https://github.com/emirbugra/react-api-tutorial/tree/main/docs/api
+
+to run projec on your local:
+
+// npm i
+
+// npm run server
+
+// npm run dev
+
+![](./public/assets/serviceFinder.gif)

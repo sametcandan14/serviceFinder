@@ -1,6 +1,9 @@
 import { useSelector } from "react-redux";
 import Dropdown from "react-bootstrap/Dropdown";
+import { useContext } from "react";
+import { ThemeContext } from "../../context/theme-context";
 const UserPage = () => {
+  const { theme } = useContext(ThemeContext);
   const authState = useSelector((state) => state.authState);
   return (
     <>
@@ -20,7 +23,10 @@ const UserPage = () => {
             </li>
 
             <li>
-              <a href="#" className="nav-link link-dark">
+              <a
+                href="#"
+                className={`nav-link ${theme === "light" && "link-dark"}`}
+              >
                 <svg className="bi me-2" width={16} height={16}>
                   <use xlinkHref="#table" />
                 </svg>
@@ -28,7 +34,10 @@ const UserPage = () => {
               </a>
             </li>
             <li>
-              <a href="#" className="nav-link link-dark">
+              <a
+                href="#"
+                className={`nav-link ${theme === "light" && "link-dark"}`}
+              >
                 <svg className="bi me-2" width={16} height={16}>
                   <use xlinkHref="#grid" />
                 </svg>
@@ -36,7 +45,10 @@ const UserPage = () => {
               </a>
             </li>
             <li>
-              <a href="#" className="nav-link link-dark">
+              <a
+                href="#"
+                className={`nav-link ${theme === "light" && "link-dark"}`}
+              >
                 <svg className="bi me-2" width={16} height={16}>
                   <use xlinkHref="#people-circle" />
                 </svg>
